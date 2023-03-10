@@ -1,0 +1,36 @@
+G: && cd G:\Anaji-23\RealEstatePricePrediction && Venv1\Scripts\activate && jupyter notebook
+
+
+G: && cd G:\Anaji-23\RealEstatePricePrediction && Venv1\Scripts\activate && jupyter lab
+
+pip install jupyter notebook
+pip install jupyterlab
+python -m ipykernel install --user --name=Venv
+------------------------------------------------------------------------------------------
+C:\Users\user\AppData\Local\Programs\Python\Python39\python.exe -m venv Venv
+C:\Users\user\AppData\Local\Programs\Python\Python38\python.exe -m venv Venv1
+
+Venv1\Scripts\activate         <<== Activate Venv
+
+Venv\Scripts\deactivate.bat   <<== Deactivate Venv
+
+# Install Libraries:
+python -m pip install --upgrade pip  
+
+pip install jupyter notebook==>NO
+
+https://janakiev.com/blog/jupyter-virtual-envs/
+
+pip install ipykernel
+pip install jupyterlab
+python -m ipykernel install --user --name=myenv
+
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+------------------------------------------------------------------------------------------
+
+(Venv) G:\Anaji-23\RealEstatePricePrediction>jupyter kernelspec list
+Available kernels:
+  %s    %s python3 G:\Anaji-23\RealEstatePricePrediction\Venv\share\jupyter\kernels\python3
+  %s    %s venv    C:\Users\user\AppData\Roaming\jupyter\kernels\venv
