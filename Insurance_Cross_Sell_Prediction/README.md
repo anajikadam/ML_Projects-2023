@@ -74,10 +74,10 @@ We have 381109 data points available.
 
 ## 1. Data Wrangling
 After loading our dataset, we observed that our dataset has 381109 rows and 12 columns. We applied a null check and found that our data set has no null values. Further, we treated the outliers in our dataset using a quantile method.
-![image](https://user-images.githubusercontent.com/35359451/135953638-5ed37a2c-faaf-4c09-a276-4afc8e345a02.png)
+
 
 ### Outlier Treatment
-![image](https://user-images.githubusercontent.com/35359451/136047262-8aa2ad3e-df50-4dfc-91e9-041ae7fea9ed.png)
+
 --
 
 
@@ -101,10 +101,7 @@ We used one-hot encoding for converting the categorical columns such as 'Gender'
 ## 5. Feature Selection
 At first, we obtained the correlation between numeric features through Kendall’s Rank Correlation to understand their relation. We had two numerical features, i.e. Annual_Premium and Vintage. 
 For categorical features, we tried to see the feature importance through Mutual Information.  It measures how much one random variable tells us about another.
-|||
-|----|----|
-| ![image](https://user-images.githubusercontent.com/35359451/135954415-825af5ec-b9cc-4729-b602-ccc456d88244.png) | ![image](https://user-images.githubusercontent.com/35359451/135954442-a80364b7-652c-42ee-937e-ed69ee52960d.png)|
-|||
+
 
 
 ## 6. Model Fitting
@@ -140,8 +137,7 @@ Tuning of hyperparameters is necessary for modeling to obtain better accuracy an
 #### - RandomizedSearchCV
 #### - HalvingRandomizedSearchCV
 
-![Screenshot from 2021-10-05 20-40-27](https://user-images.githubusercontent.com/35359451/136051125-b4c12fab-aa31-4908-af9e-040d14a81794.png)
-![image](https://user-images.githubusercontent.com/35359451/135954494-ed31cdfe-711b-4e41-b4ff-57fe79812daa.png)
+
 
 
 ## 8. Metrics Evaluation
@@ -156,20 +152,6 @@ They are:
 #### vi. ROC-AUC Score
 #### vii. Log Loss
 
-|||
-|----|----|
-| ![image](https://user-images.githubusercontent.com/35359451/135954471-0ef43329-7b54-456a-823a-fd8c92d4a972.png)|![image](https://user-images.githubusercontent.com/35359451/136068778-fc4ea607-eb68-49aa-9153-5eb91f766716.png)|
-|||
-
-
-**Evaluaion Before Tuning**
-
-![image](https://user-images.githubusercontent.com/35359451/136073894-75063df3-fd0e-4e24-a8bd-29421bff8b9d.png)
-
-**Evaluaion After Tuning**
-
-![image](https://user-images.githubusercontent.com/35359451/136073964-35f6560b-ed77-41e0-b75f-a6dcf845aa80.png)
-
 
 # Challenges Faced
 - Handling Large dataset.
@@ -177,37 +159,24 @@ They are:
 - Memory Optimization during hyperparameter tuning.
 
 
-
 # Conclusion
-Starting from loading our dataset, we firstly performed data cleaning and refactoring by outlier detection and normalization of data. Then we covered  EDA, feature selection and algorithm selection, and hyperparameter tuning.
-The Accuracy score obtained for all models was in the range of 68% to 85% before tuning
-After tuning the models we were able to get an accuracy of approx 87%. But we selected our best model as the model with an accuracy score of 85% considering precision and recall as we have an unequal number of observations in each class in our dataset, so accuracy alone can be misleading.
+In problem, we have to find those customers only who are interested for taking next (Vehicle) Insurance. so we can targeted those customers only for markiting...
 
+so here we focus on the correctly Predicted Positive value, (What proportion of Correctly Positive Predicted by the Actual Positive)...
 
+Means we can check our model has High Recall score. (Actual number of customer who are interested in take Insurance, what number of customers predicted Positive by ML model who are intersted....)
 
+So Highest Recall at Before tuning GaussianNB Classifier, But After tuning classifier Accuracy increases and Log_loss decreases.
 
+Precision
+Our stackholder is interested in All the Customers who might be interested in taking Insurance Predicted by ML model. means taking some risk bases on we can Use Precision as evalution matrix in this stage.
 
----
-Here is a glimpse of few graphs we plotted, there are many more in the notebook please have a look.
-![image](https://user-images.githubusercontent.com/35359451/136075191-a409b7a4-adf9-4950-ba79-489cb91cba69.png)|![image](https://user-images.githubusercontent.com/35359451/136075288-2879d356-8b14-4d45-9ab1-9a95e892434b.png)|![image](https://user-images.githubusercontent.com/35359451/136075349-a59d1d2a-b19a-4155-a372-077d680905ed.png)|
-:-------------------------:|:-------------------------:|:-------------------------:
-![image](https://user-images.githubusercontent.com/35359451/136075430-09139077-575b-444c-9bbf-fe352aac1d60.png)|![image](https://user-images.githubusercontent.com/35359451/136075516-ac13173a-9a79-4477-9f4f-f24fd3a49cba.png)|![image](https://user-images.githubusercontent.com/35359451/136076533-4c3d8e4b-ce04-4d9c-942c-38ad1b31d006.png)|
-![image](https://user-images.githubusercontent.com/35359451/136076076-b7616323-5020-4646-b4a9-6e12d149fda8.png)|![image](https://user-images.githubusercontent.com/35359451/136076150-7e78971f-e134-401e-8b97-97aae61cfa46.png)|![image](https://user-images.githubusercontent.com/35359451/136076259-ffef7f15-8b6b-4230-a1c5-8e697ce06c50.png)|
+F1-score
+If Both (Precision And Recall) Equal Important for model evaluation, then can use F1-score, which gives Harmonic mean of Precision and Recall.
 
+GaussianNB Classifier is the Best model, F1-score is 0.42
 
-
----
-# References
- - https://towardsdatascience.com
- - https://www.kaggle.com/
- - https://www.analyticsvidhya.com
- - https://machinelearningmastery.com
-
+For Balanced (by Under-sampling) data set, All the matrix increases but due to undersampling reduce majority class data upto minority class, so more amount data is not used.
+Here also GaussianNB Classifier is the Best model, F1-score is 0.82, and Recall and Accuracy also increases.
 
 ---
----
-
-Meet me on Linkdin:
-
-> Anaji Kadam: https://github.com
-
